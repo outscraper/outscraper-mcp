@@ -191,3 +191,13 @@ This server is compatible with any MCP client, including:
 - Check [Outscraper Pricing](https://outscraper.com/pricing/) for current rates
 - API key usage is tracked per request
 - Consider implementing caching for frequently accessed data
+
+## 📄 License
+Experimental Software License - see LICENSE file for details.
+
+Notice: This software is experimental and free to use for all purposes. Created by [nikolaout](https://github.com/nikolaout).
+
+## 🔗 Links
+- [Outscraper API Documentation](https://app.outscraper.com/api-docs)
+- [FastMCP Documentation](https://gofastmcp.com/getting-started/welcome)
+- [Model Context Protocol](https://modelcontextprotocol.io/)
