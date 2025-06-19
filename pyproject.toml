@@ -1,0 +1,13 @@
+[project]
+name = "outscraper-mcp-server"
+version = "0.1.0"
+description = "MCP server exposing Outscraper tools"
+authors = [{name = "Outscraper", email = "outscraper@outscraper.com"}]
+dependencies = [
+    "outscraper",
+    "fastmcp",
+    "python-dotenv"
+]
+
+[project.scripts]
+outscraper-mcp-server = "outscraper_mcp_server.server:run"
