@@ -1,10 +1,10 @@
 # Outscraper MCP Server
 
 [![smithery](https://img.shields.io/badge/smithery-enabled-brightgreen)](https://github.com/smithery-io/smithery)
-[![PyPI version](https://img.shields.io/pypi/v/outscraper-mcp.svg)](https://pypi.org/project/outscraper-mcp/)
+[![PyPI version](https://img.shields.io/pypi/v/outscraper-mcp-server.svg)](https://pypi.org/project/outscraper-mcp-server/)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-A streamlined Model Context Protocol (MCP) server that provides access to Outscraper's Google Maps data extraction services. This server implements essential tools for extracting Google Maps data with high reliability.
+A comprehensive Model Context Protocol (MCP) server that provides AI assistants with access to Outscraper's data extraction services. This server implements 25+ tools for extracting business intelligence, location data, reviews, and contact information from Google Maps, Amazon, Yelp, Trustpilot, and many other online platforms with high reliability and performance.
 
 ## 🚀 Features
 
