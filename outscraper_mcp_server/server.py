@@ -1,14 +1,14 @@
 import logging
 import sys
 import os
+from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
 from outscraper import ApiClient
 
+# Load environment variables from .env file
+load_dotenv()
 
-OUTSCRAPER_API_KEY = os.getenv("OUTSCRAPER_API_KEY")
-client = ApiClient(api_key=OUTSCRAPER_API_KEY)
-
-
+# Set up logging first
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -17,6 +17,14 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger("outscraper-mcp-server")
+
+# Get API key from environment variables (now including those loaded from .env)
+OUTSCRAPER_API_KEY = os.getenv("OUTSCRAPER_API_KEY")
+if not OUTSCRAPER_API_KEY:
+    logger.warning("OUTSCRAPER_API_KEY environment variable not set. API calls will fail.")
+
+client = ApiClient(api_key=OUTSCRAPER_API_KEY)
+
 
 mcp = FastMCP("Outscraper MCP Server")
 
