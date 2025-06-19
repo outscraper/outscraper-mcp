@@ -135,6 +135,3 @@ def run():
     except Exception as e:
         logger.error(f"Server error: {str(e)}")
         raise
-
-if __name__ == "__main__":
-    run()
