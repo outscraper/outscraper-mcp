@@ -35,6 +35,10 @@ def google_maps_search(query: str, limit: int = 20, drop_duplicates: bool = Fals
                       fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Search businesses or places on Google Maps.
 
+    Examples:
+    - Find coffee shops: google_maps_search("coffee shops in san francisco", limit=5)
+    - Get details for specific place: google_maps_search("ChIJIQBpAG2ahYAR_6128GcTUEo")
+
     Parameters:
         query (str): Search query, place name, or google_id.
         limit (int): Maximum places to retrieve per query. Default: 20.
@@ -69,6 +73,10 @@ def google_maps_reviews(query: str, reviews_limit: int = 10, limit: int = 1, sor
                        last_pagination_id: str = None, fields: str = None, async_request: bool = False,
                        ui: bool = None, webhook: str = None):
     """Get reviews for Google Maps places.
+
+    Examples:
+    - Get reviews for a place by ID: google_maps_reviews("ChIJIQBpAG2ahYAR_6128GcTUEo", reviews_limit=10)
+    - Get reviews for a place by URL: google_maps_reviews("https://www.google.com/maps/place/Eiffel+Tower")
 
     Parameters:
         query (str): Search query, place_id, google_id or Maps URL.
@@ -108,6 +116,10 @@ def google_search(query: str, pages_per_query: int = 1, uule: str = None, langua
                fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Search Google.
 
+    Examples:
+    - Simple search: google_search("what is the weather in london")
+    - Search with multiple pages: google_search("python tutorials", pages_per_query=2)
+
     Parameters:
         query (str): Search query for Google.
         pages_per_query (int): Number of pages to return. Default: 1.
@@ -137,6 +149,10 @@ def google_search(query: str, pages_per_query: int = 1, uule: str = None, langua
 def google_search_news(query: str, pages_per_query: int = 1, uule: str = None, tbs: str = None, language: str = "en", 
                    region: str = None, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Search Google News.
+
+    Examples:
+    - Search for news: google_search_news("latest technology news")
+    - Search news in a specific region: google_search_news("stock market today", region="US")
 
     Parameters:
         query (str): Search query for Google News.
@@ -170,6 +186,10 @@ def google_maps_photos(query: str, photos_limit: int = 20, limit: int = 1, tag: 
                       webhook: str = None):
     """Get photos from Google Maps places.
 
+    Examples:
+    - Get photos of a place: google_maps_photos("Eiffel Tower", photos_limit=10)
+    - Get photos for a specific place ID: google_maps_photos("ChIJIQBpAG2ahYAR_6128GcTUEo")
+
     Parameters:
         query (str): Search query, place_id, google_id or Maps URL.
         photos_limit (int): Maximum photos to extract per place. Default: 20.
@@ -199,6 +219,10 @@ def google_maps_directions(origins_destinations: list, departure_time: int = Non
                           region: str = None, fields: str = None, async_request: bool = False,
                           ui: bool = None, webhook: str = None):
     """Get directions between locations on Google Maps.
+
+    Examples:
+    - Get directions between two airports: google_maps_directions(origins_destinations=["SFO to LAX"])
+    - Get walking directions using coordinates: google_maps_directions(origins_destinations=["48.8584,2.2945 48.8606,2.3376"], travel_mode="walk")
     Format: ['origin_lat,origin_lng destination_lat,destination_lng', ...]
     Example: ['29.696596,76.994928 30.7159662444353,76.8053887016268']
 
@@ -229,10 +253,14 @@ def google_maps_directions(origins_destinations: list, departure_time: int = Non
         raise
 
 @mcp.tool()
-def google_play_reviews(app_id: str, reviews_limit: int = 20, sort: str = "most_relevant", cutoff: int = None,
+def google_play_reviews(app_id: str, reviews_limit: int = 20, sort: str = 'most_relevant', cutoff: int = None,
                       rating: int = None, language: str = "en", fields: str = None, async_request: bool = False,
                       ui: bool = None, webhook: str = None):
     """Get reviews for an app from Google Play Store.
+
+    Examples:
+    - Get reviews for an app: google_play_reviews("com.google.android.apps.maps", reviews_limit=50)
+    - Get newest reviews for an app: google_play_reviews("com.spotify.music", sort="newest")
     Example app_id: 'com.facebook.katana' for Facebook
     Parameters:
         app_id (str): App ID or direct link (e.g., 'com.facebook.katana').
@@ -260,6 +288,10 @@ def google_play_reviews(app_id: str, reviews_limit: int = 20, sort: str = "most_
 @mcp.tool()
 def emails_and_contacts(domains: list, fields: str = None):
     """Extract emails and contact information from websites.
+
+    Examples:
+    - Extract contacts from a single domain: emails_and_contacts(domains=["outscraper.com"])
+    - Extract contacts from multiple domains: emails_and_contacts(domains=["github.com", "linkedin.com"])
     Example: ['outscraper.com']
 
     Parameters:
@@ -279,6 +311,10 @@ def emails_and_contacts(domains: list, fields: str = None):
 def phones_enricher(query: list, fields: str = None):
     """Returns phones carrier data, validates phones, ensures messages deliverability.
 
+    Examples:
+    - Enrich a single phone number: phones_enricher(query=["+14155552671"])
+    - Enrich multiple phone numbers: phones_enricher(query=["+442079460000", "+33153017600"])
+
     Parameters:
         query (list): Phone numbers to check (e.g., ['+1 281 236 8208']).
         fields (str): Fields to include in response.
@@ -296,6 +332,10 @@ def phones_enricher(query: list, fields: str = None):
 def amazon_products(query: list, limit: int = 24, domain: str = 'amazon.com', postal_code: str = '11201',
                     fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns information about products on Amazon.
+
+    Examples:
+    - Search for products: amazon_products(query=["https://www.amazon.com/s?k=laptop"], limit=10)
+    - Get product details: amazon_products(query=["https://www.amazon.com/dp/B0862269YP"])
 
     Parameters:
         query (list): Amazon product or summary pages URLs.
@@ -323,6 +363,10 @@ def amazon_reviews(query: list, limit: int = 10, sort: str = 'helpful', filter_b
                    async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Amazon products.
 
+    Examples:
+    - Get reviews for a product by ASIN: amazon_reviews(query=["B0862269YP"], limit=20)
+    - Get recent reviews for a product by URL: amazon_reviews(query=["https://www.amazon.com/dp/1612680194"], sort="recent")
+
     Parameters:
         query (list): URLs or ASINs from Amazon products (e.g., 'https://www.amazon.com/dp/1612680194', '1612680194').
         limit (int): Maximum reviews to get from one query. Default: 10.
@@ -346,11 +390,13 @@ def amazon_reviews(query: list, limit: int = 10, sort: str = 'helpful', filter_b
         logger.error(f"Error getting Amazon reviews: {str(e)}")
         raise
 
-
 @mcp.tool()
 def yelp_search(query: list, limit: int = 100, fields: str = None,
                async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns search results from Yelp.
+
+    Examples:
+    - Search for restaurants in a city: yelp_search(query=["https://www.yelp.com/search?find_desc=Restaurants&find_loc=San+Francisco%2C+CA"], limit=10)
 
     Parameters:
         query (list): Yelp search URLs with parameters (e.g., "https://www.yelp.com/search?find_desc=Restaurants&find_loc=San+Francisco%2C+CA").
@@ -375,6 +421,9 @@ def yelp_reviews(query: list, limit: int = 100, sort: str = 'relevance_desc', cu
                 fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Yelp businesses.
 
+    Examples:
+    - Get reviews for a business: yelp_reviews(query=["https://www.yelp.com/biz/cancha-boutique-gastrobar-san-francisco"], limit=5)
+
     Parameters:
         query (list): Yelp business URLs or IDs (e.g., "https://www.yelp.com/biz/cancha-boutique-gastrobar-san-francisco").
         limit (int): Maximum reviews to get from one query. Default: 100.
@@ -397,8 +446,11 @@ def yelp_reviews(query: list, limit: int = 100, sort: str = 'relevance_desc', cu
 
 @mcp.tool()
 def tripadvisor_reviews(query: list, limit: int = 100, cutoff: int = None,
-                       fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
+                        fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Tripadvisor businesses.
+
+    Examples:
+    - Get reviews for a restaurant: tripadvisor_reviews(query=["https://www.tripadvisor.com/Restaurant_Review-g187147-d12947099-Reviews"], limit=10)
 
     Parameters:
         query (list): Tripadvisor page URLs (e.g., "https://www.tripadvisor.com/Restaurant_Review-g187147-d12947099-Reviews").
@@ -423,6 +475,10 @@ def tripadvisor_reviews(query: list, limit: int = 100, cutoff: int = None,
 def apple_store_reviews(query: list, limit: int = 100, sort: str = 'mosthelpful', cutoff: int = None,
                         fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from AppStore apps.
+
+    Examples:
+    - Get reviews from an app URL: apple_store_reviews(query=["https://apps.apple.com/us/app/telegram-messenger/id686449807"], limit=50)
+    - Get most recent reviews from an app ID: apple_store_reviews(query=["686449807"], sort="mostrecent")
 
     Parameters:
         query (list): AppStore app URLs or IDs (e.g., "https://apps.apple.com/us/app/telegram-messenger/id686449807").
@@ -449,6 +505,10 @@ def youtube_comments(query: list, per_query: int = 100, language: str = 'en', re
                      fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns comments from YouTube videos.
 
+    Examples:
+    - Get comments from a video URL: youtube_comments(query=["https://www.youtube.com/watch?v=dQw4w9WgXcQ"], per_query=20)
+    - Get comments from a video ID: youtube_comments(query=["ph5pHgklaZ0"])
+
     Parameters:
         query (list): YouTube video links or video IDs (e.g., "https://www.youtube.com/watch?v=ph5pHgklaZ0").
         per_query (int): Maximum comments to return per query. Default: 100.
@@ -473,6 +533,9 @@ def youtube_comments(query: list, per_query: int = 100, language: str = 'en', re
 def g2_reviews(query: list, limit: int = 100, sort: str = 'g2_default', cutoff: int = None,
                fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from G2 products.
+
+    Examples:
+    - Get reviews for a product: g2_reviews(query=["https://www.g2.com/products/outscraper"], limit=15)
 
     Parameters:
         query (list): G2 product URLs (e.g., "https://www.g2.com/products/outscraper").
@@ -499,6 +562,9 @@ def trustpilot_reviews(query: list, limit: int = 100, languages: str = 'default'
                        cutoff: int = None, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Trustpilot businesses.
 
+    Examples:
+    - Get reviews for a domain from Trustpilot: trustpilot_reviews(query=["outscraper.com"], limit=10)
+
     Parameters:
         query (list): Trustpilot page URLs or domain names (e.g., "outscraper.com").
         limit (int): Maximum reviews to get per query. Default: 100.
@@ -522,9 +588,12 @@ def trustpilot_reviews(query: list, limit: int = 100, languages: str = 'default'
         raise
 
 @mcp.tool()
-def glassdoor_reviews(query: list, limit: int = 100, sort: str = 'DATE', cutoff: int = None,
-                      fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
+def glassdoor_reviews(query: list, limit: int = 100, sort: str = 'DATE', 
+                        cutoff: int = None, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Glassdoor companies.
+
+    Examples:
+    - Get company reviews: glassdoor_reviews(query=["https://www.glassdoor.com/Reviews/Amazon-Reviews-E6036.htm"], limit=25)
 
     Parameters:
         query (list): Glassdoor company URLs (e.g., "https://www.glassdoor.com/Reviews/Amazon-Reviews-E6036.htm").
@@ -548,9 +617,12 @@ def glassdoor_reviews(query: list, limit: int = 100, sort: str = 'DATE', cutoff:
 
 @mcp.tool()
 def capterra_reviews(query: list, limit: int = 100, sort: str = 'MOST_HELPFUL', cutoff: int = None,
-                     language: str = 'en', region: str = None, fields: str = None, 
-                     async_request: bool = False, ui: bool = None, webhook: str = None):
+                     language: str = 'en', region: str = None,
+                     fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns reviews from Capterra.
+
+    Examples:
+    - Get reviews for a software product: capterra_reviews(query=["https://www.capterra.com/p/228041/Google-Maps-scraper/"], limit=20)
 
     Parameters:
         query (list): Capterra product page URLs (e.g., "https://www.capterra.com/p/228041/Google-Maps-scraper/").
@@ -579,6 +651,9 @@ def capterra_reviews(query: list, limit: int = 100, sort: str = 'MOST_HELPFUL', 
 def geocoding(query: list, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Translates human-readable addresses into map locations (latitude, longitude).
 
+    Examples:
+    - Geocode an address: geocoding(query=["321 California Ave, Palo Alto, CA 94306"])
+
     Parameters:
         query (list): Addresses to geocode (e.g., "321 California Ave, Palo Alto, CA 94306").
         fields (str): Fields to include in response.
@@ -598,6 +673,9 @@ def geocoding(query: list, fields: str = None, async_request: bool = False, ui: 
 @mcp.tool()
 def reverse_geocoding(query: list, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Translates map locations (latitude, longitude) into human-readable addresses.
+
+    Examples:
+    - Reverse geocode coordinates: reverse_geocoding(query=["40.7624284 -73.973794"])
 
     Parameters:
         query (list): Coordinates to reverse geocode (e.g., "40.7624284 -73.973794").
@@ -619,6 +697,9 @@ def reverse_geocoding(query: list, fields: str = None, async_request: bool = Fal
 def whitepages_phones(query: list, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns insights about phone number owners (name, address, etc.) from Whitepages.
 
+    Examples:
+    - Look up a phone number: whitepages_phones(query=["+12812368208"])
+
     Parameters:
         query (list): Phone numbers to look up (e.g., "+1 281 236 8208").
         fields (str): Fields to include in response.
@@ -638,6 +719,9 @@ def whitepages_phones(query: list, fields: str = None, async_request: bool = Fal
 @mcp.tool()
 def whitepages_addresses(query: list, fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns insights about addresses and their residents from Whitepages.
+
+    Examples:
+    - Look up an address: whitepages_addresses(query=["321 California Ave, Palo Alto, CA 94306"])
 
     Parameters:
         query (list): Addresses to look up (e.g., "321 California Ave, Palo Alto, CA 94306").
@@ -659,6 +743,10 @@ def whitepages_addresses(query: list, fields: str = None, async_request: bool = 
 def company_insights(query: list, fields: str = None, async_request: bool = False, enrichment: list = None):
     """Finds company details such as revenue, size, founding year, public status, etc.
 
+    Examples:
+    - Get insights for a company: company_insights(query=["outscraper.com"])
+    - Get insights with social media enrichment: company_insights(query=["dominopark.com"], enrichment=["social_media"])
+
     Parameters:
         query (list): Domains or websites (e.g., "dominopark.com").
         fields (str): Fields to include in response.
@@ -678,6 +766,10 @@ def company_insights(query: list, fields: str = None, async_request: bool = Fals
 def validate_emails(query: list, async_request: bool = False):
     """Validates email addresses and checks if they are deliverable.
 
+    Examples:
+    - Validate a single email: validate_emails(query=["support@outscraper.com"])
+    - Validate multiple emails: validate_emails(query=["test@example.com", "invalid-email"])
+
     Parameters:
         query (list): Email addresses to validate (e.g., "support@outscraper.com").
         async_request (bool): If True, returns request ID for later retrieval.
@@ -695,6 +787,9 @@ def validate_emails(query: list, async_request: bool = False):
 def trustpilot_search(query: list, limit: int = 100, skip: int = 0, enrichment: list = None,
                       fields: str = None, async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns search results from Trustpilot.
+
+    Examples:
+    - Search for businesses on Trustpilot: trustpilot_search(query=["real estate"], limit=10)
 
     Parameters:
         query (list): Companies or categories to search on Trustpilot (e.g., "real estate").
@@ -720,6 +815,9 @@ def trustpilot_search(query: list, limit: int = 100, skip: int = 0, enrichment: 
 def trustpilot(query: list, enrichment: list = None, fields: str = None,
                async_request: bool = False, ui: bool = None, webhook: str = None):
     """Returns data from Trustpilot businesses.
+
+    Examples:
+    - Get Trustpilot data for a domain: trustpilot(query=["outscraper.com"])
 
     Parameters:
         query (list): Trustpilot page URLs or domain names (e.g., "outscraper.com").
