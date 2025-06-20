@@ -20,7 +20,6 @@ A comprehensive Model Context Protocol (MCP) server that provides AI assistants 
 - 📱 **Google Play Reviews** - Get reviews for apps from Google Play Store
 - 🛒 **Amazon Products** - Get information about products on Amazon
 - 📝 **Amazon Reviews** - Extract reviews from Amazon products
-- 🍽️ **Yelp Search & Reviews** - Search Yelp and extract business reviews
 - 🏨 **Tripadvisor Reviews** - Get reviews from Tripadvisor businesses
 - 📲 **Apple Store Reviews** - Extract reviews from AppStore apps
 - 📺 **YouTube Comments** - Get comments from YouTube videos
@@ -85,7 +84,7 @@ pip install -e .
 ## Configuration
 
 ### Get Your API Key
-1. Sign up at [Outscraper](https://outscraper.com)
+1. Sign up at [Outscraper](https://auth.outscraper.com)
 2. Get your API key from the profile page
 
 ### Set Environment Variable
