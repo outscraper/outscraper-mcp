@@ -2,9 +2,11 @@
 name = "outscraper-mcp-server"
 version = "0.1.0"
 description = "MCP server exposing Outscraper tools"
-authors = [{name = "Outscraper", email = "outscraper@outscraper.com"}]
+authors = [
+    {name = "Outscraper", email = "developers@outscraper.com"}
+]
 readme = "README.md"
-license = {text = "Experimental Software License"}
+license = "MIT"
 requires-python = ">=3.10"
 keywords = ["mcp", "outscraper", "google-maps", "reviews", "search", "data-extraction", "business-intelligence", "api", "google"]
 dependencies = [
