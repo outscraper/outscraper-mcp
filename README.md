@@ -84,7 +84,7 @@ pip install -e .
 ## Configuration
 
 ### Get Your API Key
-1. Sign up at [Outscraper](https://auth.outscraper.com)
+1. Sign up at [Outscraper](https://outscraper.com)
 2. Get your API key from the profile page
 
 ### Set Environment Variable
