@@ -101,7 +101,7 @@ class TestOutscraperMCPInitialization(unittest.TestCase):
 
         mock_run = MagicMock()
 
-        with patch.dict('sys.modules', {'outscraper_mcp_server.server': MagicMock()}):  
+        with patch.dict('sys.modules', {'outscraper_mcp_server.server': MagicMock()}):
             sys.modules['outscraper_mcp_server.server'].run = mock_run
 
             from outscraper_mcp_server import main
