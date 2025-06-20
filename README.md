@@ -95,6 +95,7 @@ Or create a `.env` file:
 ```
 OUTSCRAPER_API_KEY=your_api_key_here
 ```
+[Link to the profile page to create the API key](https://auth.outscraper.com/profile)
 
 ## Client Configuration
 
