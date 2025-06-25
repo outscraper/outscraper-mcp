@@ -1,6 +1,6 @@
 [project]
 name = "outscraper-mcp-server"
-version = "0.1.1"
+version = "0.1.2"
 description = "MCP server exposing Outscraper tools"
 authors = [
     {name = "Outscraper", email = "developers@outscraper.com"}
